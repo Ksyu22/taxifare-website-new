@@ -29,11 +29,12 @@ params = dict(
     dropoff_latitude=dropoff_latitude,
     passenger_count=passenger_count)
 
-wagon_cab_api_url = 'https://taxifare.lewagon.ai/predict'
+# wagon_cab_api_url = 'https://taxifare.lewagon.ai/predict'
+wagon_cab_api_url = 'https://taxifare-232977125909.europe-west1.run.app/predict'
 response = requests.get(wagon_cab_api_url, params=params)
 
 prediction = response.json()
 
-pred = prediction['fare']
+pred = prediction['taxifare']
 
 st.header(f'Fare amount: ${round(pred, 2)}')
